@@ -1,0 +1,22 @@
+/*
+    backgrounds
+*/
+.background-img{
+    background-image: url("../resources/assets/background.jpg");
+}
+
+
+/*
+  Typography
+*/
+
+@font-face{
+    font-family: Roboto_Regular;
+     src: url("../resources/typography/Roboto-Regular.ttf");
+}
+
+
+@font-face{
+    font-family: Robot_Thin;
+    src: url("../resources/typography/Roboto-Thin.ttf");
+}
