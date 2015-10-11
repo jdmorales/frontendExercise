@@ -1,26 +1,9 @@
-function isDefined(varD){
-   if (typeof varD != 'undefined')
-       return true;
-       return false;
-}
+/*
+ * Controllers and Components Javascript 
+ *
+*/
 
-
-/*Used for load .json with an urlFile*/
-function loadJSON(callback,urlFile) {   
-
-    var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
-    xobj.open('GET',urlFile, true); // Replace 'my_data' with the path to your file
-    xobj.onreadystatechange = function () {
-          if (xobj.readyState == 4 && xobj.status == "200") {
-            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-            callback(xobj.responseText);
-          }
-    };
-    xobj.send(null);  
-}
-
-
+/*Create Element  menu item float*/
 function item_float($scope){
     var label=isDefined($scope.label)?$scope.label:"title";
     var urlLabel=isDefined($scope.url)?$scope.url:"#";
@@ -40,59 +23,79 @@ function item_float($scope){
 }
 
 /* Create the Element menu_item*/
-function menu_item($scope){
+function menu_item($scope,$parentscope){
     var items=[];
     var idItem=isDefined($scope.id)?$scope.id:"";
     var label=isDefined($scope.label)?$scope.label:"title";
     var urlLabel=isDefined($scope.url)?$scope.url:"#";
     var itemsFloat=isDefined($scope.items)?$scope.items:[];
-    //console.log(idItem);
-    //console.log(label);
-    //console.log(urlLabel);
-    //console.log(items);
-    
-    this.itemM=document.createElement('div');
-    this.itemM.setAttribute("class","menu-item col");
-    
-    this.head=document.createElement('div');
-    this.head.setAttribute("class","head");
-    this.head.setAttribute("id",idItem);
-    
-    this.caret=document.createElement('div');
-    this.caret.setAttribute("class","caret-icon");
-    
-    this.title=document.createElement('div');
-    this.title.setAttribute("class","title");
-    this.title.innerHTML=label;
-    
-    this.head.appendChild(this.title);
+
+    this.$id=idItem;
+    this.visible=false;
+    this.element=document.createElement('div');
+    this.element.setAttribute("class","menu-item col");
     
     
-    this.menuFloat=document.createElement('div');
-    this.menuFloat.setAttribute("class","menu-float");
+    var head=document.createElement('div');
+    head.setAttribute("class","head");
+    //this.head.setAttribute("id",idItem);
+    
+    var caret=document.createElement('div');
+    caret.setAttribute("class","caret-icon");
+    
+    var title=document.createElement('div');
+    title.setAttribute("class","title");
+    title.innerHTML=label;
+    
+    head.appendChild(title);
+    
+    
+    var menuFloat=document.createElement('div');
+    menuFloat.setAttribute("class","menu-float");
+    
     
     
    /*add all deep child elements*/
    this.render=function(){
         if(itemsFloat.length>0){
-            this.head.appendChild(this.caret);
+            head.appendChild(caret);
             for(k in itemsFloat){ 
                 var item=itemsFloat[k];
                 item.id="$"+idItem+k;
                 var elementFloat=new item_float(item);
                 //console.log(elementFloat.getElement());
-                this.menuFloat.appendChild(elementFloat.getElement());
+                menuFloat.appendChild(elementFloat.getElement());
             }
         }
         
-        this.itemM.appendChild(this.head);
-        this.itemM.appendChild(this.menuFloat);
+        this.element.appendChild(head);
+        this.element.appendChild(menuFloat);
     }
     
     
     this.getTemplate=function(){
         this.render();
-        return this.itemM;
+        return this.element;
+    }
+    
+    this.getScope=function(){
+        return this;
+    }
+    
+    
+   this.element.onclick=function(e){
+       $parentscope.currentElement=idItem;
+    }
+    
+    this.changeState=function(state){
+        this.visible=state;
+        if(state){
+            this.element.classList.add("active");
+            this.visible=true;
+        }else{
+            this.element.classList.remove("active");
+            this.visible=false;
+        }
     }
     
     
@@ -112,33 +115,65 @@ function menu_item($scope){
     */
 }
 
-
+/*This use the JSON service for load the */
 function nav_menu(menu_JSON){
     var menu=menu_JSON.items;
     var nav=document.getElementById('nav');
-
-    var items=[];
+    var container=document.getElementById("main_container");
+    var menu_icon=document.getElementById("menu_icon");
+    var close_icon=document.getElementById("close_icon");
+    
+    this.items=[];
+    this.currentElement="$";
+    
   
-     for(k in menu){ 
+    for(k in menu){ 
         var item=menu[k];
         item.id="$"+k;
-        var itemM= new menu_item(item);
-        items.push(itemM.getTemplate());
+        var itemM= new menu_item(item,this);
+        this.items.push(itemM.getScope());
         nav.appendChild(itemM.getTemplate());
-     }
+    }
 }
+
+
+/*Controller Menu items. Is ready for Accordion Function*/
+function controllerMenu(menu_JSON){
+    var nav= new nav_menu(menu_JSON);
+    
+ 
+    /*This watch is for change the state to elements in the Nav-Menu*/
+    nav.watch('currentElement',function(id,oldVal,newVal){
+        items=nav.items;
+        
+        for(k in items){
+            if(newVal==items[k].$id){
+                
+                if(items[k].visible){
+                    items[k].changeState(false);
+                }else{
+                    items[k].changeState(true);
+                }
+                
+            }else{
+              items[k].changeState(false);
+            }
+        }
+    });
+}
+
 
 
 function init(){
  loadJSON(function(response) {
     var menu_JSON = JSON.parse(response);
-    nav_menu(menu_JSON);
+    controllerMenu(menu_JSON);
     },"/resources/data/menu.json");
 }
 
 
-
+/*
+* Start to Add Components
+*/
 init();
 
-
-//window.onload = function(e){ }

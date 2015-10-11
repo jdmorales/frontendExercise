@@ -36,7 +36,11 @@
         }
         
         .menu-item .item-float{
-        border-bottom:1px solid gray;
+            border-bottom:1px solid gray;
+        }
+        
+        .menu-item .item-float:hover, .menu-item .item-float:focus , .menu-item .item-float:active{
+            background-color: rgba(161, 161, 161, 0.2);;    
         }
         
         .menu-item.btn{

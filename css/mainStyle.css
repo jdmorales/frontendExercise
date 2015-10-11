@@ -68,8 +68,6 @@ a{
     padding: 2.2em 0.5em;
 }
 
-
-
 nav{
   width:auto;
   height:100%;
@@ -94,11 +92,7 @@ nav{
   background-size:cover !important;
 }
 
-.caret-icon.active{
-    -ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-    transform: rotate(180deg);
-}
+
 
 .head{
  height: 1.1em;
@@ -107,6 +101,7 @@ nav{
 
 .menu-float{
     font-size: 1em;
+    display:none;
 }
 
 .menu-item{
@@ -114,6 +109,16 @@ nav{
   padding: 1.2em 0.5em 0em 0.5em;
 }
 
+
+.menu-item.active .caret-icon{
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+.menu-item.active .menu-float{
+    display:block;
+}
 
 
 .menu-item .item-float{
