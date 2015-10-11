@@ -32,7 +32,7 @@ a{
 .background-img{
   position: fixed;
   background-position: 50% 0%;
-  background-size: inherit;
+  background-size: cover;
   background-repeat:no-repeat;
 }
 
@@ -51,7 +51,7 @@ a{
   height: 50px;
 }
 
-.logo,.nav{
+.logo{
     float:left;
 }
 
