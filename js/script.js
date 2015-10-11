@@ -4,7 +4,9 @@ function isDefined(varD){
        return false;
 }
 
- function loadJSON(callback,urlFile) {   
+
+/*Used for load .json with an urlFile*/
+function loadJSON(callback,urlFile) {   
 
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
@@ -16,84 +18,127 @@ function isDefined(varD){
           }
     };
     xobj.send(null);  
- }
-
-
-function item_float(){
-    
 }
 
 
-function menu_item(configure,idItem){
-    var conf=configure;
+function item_float($scope){
+    var label=isDefined($scope.label)?$scope.label:"title";
+    var urlLabel=isDefined($scope.url)?$scope.url:"#";
     
-    var label=isDefined(configure.title)?configure.title:"title";
-    var urlLabel=isDefined(configure.url)?configure.title:"#";
-    var items=isDefined(configure.items)?configure.title:[];
-    console.log(configure);
-    //var icon=isDefined(configure.icon)?configure.title:"caret-icon";
-    /*
-    this.menu_item=document.createElement('div').setAttribute("class","menu-item col");
-    this.head=document.createElement('div').setAttribute("class","head");
+    this.item=document.createElement('div');
+    this.item.setAttribute("class","item-float");
+    this.link=document.createElement('a');
+    this.link.setAttribute("href",urlLabel);
+    this.link.innerHTML=label;
+    
+
+    this.getElement=function(){
+        this.item.appendChild(this.link);
+        return this.item;
+    }
+    
+}
+
+/* Create the Element menu_item*/
+function menu_item($scope){
+    var items=[];
+    var idItem=isDefined($scope.id)?$scope.id:"";
+    var label=isDefined($scope.label)?$scope.label:"title";
+    var urlLabel=isDefined($scope.url)?$scope.url:"#";
+    var itemsFloat=isDefined($scope.items)?$scope.items:[];
+    //console.log(idItem);
+    //console.log(label);
+    //console.log(urlLabel);
+    //console.log(items);
+    
+    this.itemM=document.createElement('div');
+    this.itemM.setAttribute("class","menu-item col");
+    
+    this.head=document.createElement('div');
+    this.head.setAttribute("class","head");
     this.head.setAttribute("id",idItem);
     
-    this.caret=document.createElement('div').setAttribute("class","caret-icon");
+    this.caret=document.createElement('div');
+    this.caret.setAttribute("class","caret-icon");
     
-    this.title=document.createElement('div').setAttribute("class","title");
-    this.title.innerHTML=title;
+    this.title=document.createElement('div');
+    this.title.setAttribute("class","title");
+    this.title.innerHTML=label;
+    
+    this.head.appendChild(this.title);
     
     
-    this.head.appendChild(title);
-    this.head.appendChild(caret);
+    this.menuFloat=document.createElement('div');
+    this.menuFloat.setAttribute("class","menu-float");
     
     
-    this.menuFloat=document.createElement('div').setAttribute("class","menu-float");
-    
-    foreach(){
+   /*add all deep child elements*/
+   this.render=function(){
+        if(itemsFloat.length>0){
+            this.head.appendChild(this.caret);
+            for(k in itemsFloat){ 
+                var item=itemsFloat[k];
+                item.id="$"+idItem+k;
+                var elementFloat=new item_float(item);
+                //console.log(elementFloat.getElement());
+                this.menuFloat.appendChild(elementFloat.getElement());
+            }
+        }
         
+        this.itemM.appendChild(this.head);
+        this.itemM.appendChild(this.menuFloat);
     }
     
     
-    
-    
-    
-    
-    
-    ' <div class="menu-item col">'
-                               <div class="head" id="item-1">
-                                     <div class="title">BUSCAR EMPLEO</div>
-                                    <div class="caret-icon"></div>
-                                </div>
-                                
-                                <div class="menu-float">
-                                    <div class="item-float"><a href="#">Categoría</a></div>
-                                    <div class="item-float"><a href="#">País</a></div>
-                                </div>
-    </div>'
-    
-    return{
-    
+    this.getTemplate=function(){
+        this.render();
+        return this.itemM;
     }
+    
+    
+    /*This final template*/
+    /* 
+        '<div class="menu-item col">'
+           <div class="head" id="item-1">
+                 <div class="title">BUSCAR EMPLEO</div>
+                <div class="caret-icon"></div>
+            </div>
+            
+            <div class="menu-float">
+                <div class="item-float"><a href="#">Categoría</a></div>
+                <div class="item-float"><a href="#">País</a></div>
+            </div>
+        </div>'
     */
 }
 
 
-function nav(){
-    
-  // var items= 
+function nav_menu(menu_JSON){
+    var menu=menu_JSON.items;
+    var nav=document.getElementById('nav');
+
+    var items=[];
+  
+     for(k in menu){ 
+        var item=menu[k];
+        item.id="$"+k;
+        var itemM= new menu_item(item);
+        items.push(itemM.getTemplate());
+        nav.appendChild(itemM.getTemplate());
+     }
 }
 
 
-function init() {
+function init(){
  loadJSON(function(response) {
-  // Parse JSON string into object
-    var actual_JSON = JSON.parse(response);
-    //console.log(actual_JSON);
-    console.log(actual_JSON);
- },"/resources/data/menu.json");
+    var menu_JSON = JSON.parse(response);
+    nav_menu(menu_JSON);
+    },"/resources/data/menu.json");
 }
 
 
-window.onload = function(e){ 
-    init();
-}
+
+init();
+
+
+//window.onload = function(e){ }

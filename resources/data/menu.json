@@ -55,16 +55,12 @@
       {
          "label":"Convocatorias",
          "url":"#/ideas",
-         "items":[
-
-         ]
+         "items":[]
       },
       {
          "label":"Reclutados",
          "url":"/reclutatos",
-         "items":[
-
-         ]
+         "items":[]
       }
    ]
       
