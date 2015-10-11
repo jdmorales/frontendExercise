@@ -16,11 +16,16 @@ a{
   color:inherit;
 }
 
+.hidden{
+  display:none;
+}
+
 
 .row{
   width: 100%;
   height: auto;
   display:table;
+   position: relative;
 }
 
 
@@ -43,8 +48,6 @@ a{
 }
 
 .logo{
-  width: 20%;
-  min-width: 210PX;
   height: 50px;
 }
 
@@ -57,11 +60,15 @@ a{
 
 /**********NAV MENU***********/
 
+
+
 .nav-bar{
     height:auto;
     background-color:rgba(0,0,0,0.5);
     padding: 2.2em 0.5em;
 }
+
+
 
 nav{
   width:auto;
@@ -95,7 +102,7 @@ nav{
 
 .head{
  height: 1.1em;
- padding: 0.5em 0em 0.5em 0em;
+ /* padding: 0.5em 0em 0.5em 0em; */
 }
 
 .menu-float{
@@ -106,6 +113,8 @@ nav{
   font-family:'Roboto_Regular';
   padding: 1.2em 0.5em 0em 0.5em;
 }
+
+
 
 .menu-item .item-float{
   padding: 0.8em 1em;
