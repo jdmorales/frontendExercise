@@ -1,9 +1,112 @@
 body,html,.container{
    width:100%;
    height:100%;
+   background:black;
 }
 
+.col{
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+
+.row{
+  width: 100%;
+  height: auto;
+  display:table;
+}
+
+
 .background-img{
-    position: static;
-    background-position: center;
+  position: fixed;
+  background-position: 50% 0%;
+  background-size: inherit;
+  background-repeat:no-repeat;
+}
+
+
+.container{
+    font-size:1em;
+}
+
+.content{
+    height: auto;
+    min-height: 87%;
+    background-color:rgba(255,255,255,0.5);
+}
+
+.logo{
+  width: 20%;
+  min-width: 210PX;
+  height: 50px;
+}
+
+.logo,.nav{
+    float:left;
+}
+
+
+
+
+/**********NAV MENU***********/
+
+.nav-bar{
+    height:auto;
+    background-color:rgba(0,0,0,0.5);
+    padding: 2.2em 0.5em;
+}
+
+nav{
+  width:auto;
+  height:100%;
+  position: relative;
+}
+
+
+.title{
+  font-size: 0.9em;
+  font-weight: bold;
+  float:left;
+}
+
+.title:hover{
+ cursor:pointer;
+}
+
+.caret-icon{
+  float:left;
+  width: 1.5em;
+  height: 1em;
+  background-size:cover !important;
+}
+
+.caret-icon.active{
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+.head{
+ height: 1.1em;
+ padding: 0.5em 0em 0.5em 0em;
+}
+
+.menu-float{
+    font-size: 1em;
+}
+
+.menu-item{
+  font-family:'Roboto_Regular';
+  padding: 1.2em 0.5em 0em 0.5em;
+}
+
+.menu-item .item-float{
+  padding: 0.8em 1em;
 }

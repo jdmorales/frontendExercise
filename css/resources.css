@@ -1,9 +1,45 @@
+[class*="-icon"],
+.logo{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;;
+}
+
 /*
     backgrounds
 */
 .background-img{
     background-image: url("../resources/assets/background.jpg");
 }
+
+.caret-white{
+    background-image: url("../resources/assets/caret-white.png");
+}
+
+.caret-black{
+    background-image: url("../resources/assets/caret-black.png");
+}
+
+.close-icon{
+    background-image: url("../resources/assets/close.png");
+}
+
+.facebook-icon{
+    background-image: url("../resources/assets/facebook.png");
+}
+
+.linkedin-icon{
+    background-image: url("../resources/assets/linkedin.png");
+}
+
+.menu-icon{
+    background-image: url("../resources/assets/menu.png");
+}
+
+.logo{
+    background-image: url("../resources/assets/logo.png");
+}
+
 
 
 /*
@@ -12,11 +48,11 @@
 
 @font-face{
     font-family: Roboto_Regular;
-     src: url("../resources/typography/Roboto-Regular.ttf");
+     src: url("../resources/typography/Roboto-Regular_TITULO.ttf");
 }
 
 
 @font-face{
-    font-family: Robot_Thin;
-    src: url("../resources/typography/Roboto-Thin.ttf");
+    font-family: Roboto_Thin;
+    src: url("../resources/typography/Roboto-Thin_SUB-TITULO.ttf");
 }
