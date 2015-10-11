@@ -117,16 +117,12 @@ function menu_item($scope,$parentscope){
 
 /*This use the JSON service for load the */
 function nav_menu(menu_JSON){
-    var menu=menu_JSON.items;
-    var nav=document.getElementById('nav');
-    var container=document.getElementById("main_container");
-    var menu_icon=document.getElementById("menu_icon");
-    var close_icon=document.getElementById("close_icon");
-    
     this.items=[];
     this.currentElement="$";
     
-  
+    var menu=menu_JSON.items;
+    var nav=document.getElementById('nav');
+    
     for(k in menu){ 
         var item=menu[k];
         item.id="$"+k;
@@ -136,11 +132,24 @@ function nav_menu(menu_JSON){
     }
 }
 
-
 /*Controller Menu items. Is ready for Accordion Function*/
 function controllerMenu(menu_JSON){
     var nav= new nav_menu(menu_JSON);
     
+    this.isActiveMenu=false;
+    
+    var menu_nav=document.getElementById("menu_nav");
+    var container=document.getElementById("main_container");
+    var menu_icon=document.getElementById("menu_icon");
+    var close_icon=document.getElementById("close_icon");
+
+    menu_icon.onclick=function(e){
+      isActiveMenu=true;           
+    }
+    
+    close_icon.onclick=function(e){
+       isActiveMenu=false;
+    }
  
     /*This watch is for change the state to elements in the Nav-Menu*/
     nav.watch('currentElement',function(id,oldVal,newVal){
@@ -160,7 +169,20 @@ function controllerMenu(menu_JSON){
             }
         }
     });
+    
+    this.watch('isActiveMenu',function(id,oldVal,newVal){
+        if(newVal){
+            menu_nav.classList.add("active");
+            container.classList.add("active");
+        }else{
+            menu_nav.classList.remove("active");
+            container.classList.remove("active");
+        }
+    });
 }
+
+
+
 
 
 
