@@ -1,40 +1,40 @@
 body,html,.container{
-   width:100%;
-   height:100%;
-   background:black;
+    width:100%;
+    height:100%;
+    background:black;
 }
 
 .col{
-  float: left;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  position: relative;
+    float: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
 }
 
 a{
-  text-decoration:none;
-  color:inherit;
+    text-decoration:none;
+    color:inherit;
 }
 
 .hidden{
-  display:none;
+    display:none;
 }
 
 
 .row{
-  width: 100%;
-  height: auto;
-  display:table;
-   position: relative;
+    width: 100%;
+    height: auto;
+    display:table;
+    position: relative;
 }
 
 
 .background-img{
-  position: fixed;
-  background-position: 50% 0%;
-  background-size: cover;
-  background-repeat:no-repeat;
-  overflow: auto;
+    position: fixed;
+    background-position: 50% 0%;
+    background-size: cover;
+    background-repeat:no-repeat;
+    overflow: auto;
 }
 
 .container{
@@ -44,8 +44,8 @@ a{
 
 
 .logo{
-  height: 50px;
-  float:left;
+    height: 50px;
+    float:left;
 }
 
 
@@ -57,32 +57,32 @@ a{
 }
 
 nav{
-  width:auto;
-  height:100%;
-  position: relative;
+    width:auto;
+    height:100%;
+    position: relative;
 }
 
 
 .title{
-  font-size: 0.9em;
-  font-weight: bold;
-  float:left;
+    font-size: 0.9em;
+    font-weight: bold;
+    float:left;
 }
 
 .title:hover{
- cursor:pointer;
+    cursor:pointer;
 }
 
 .caret-icon{
-  float:left;
-  width: 1.5em;
-  height: 1em;
-  background-size:cover !important;
+    float:left;
+    width: 1.5em;
+    height: 1em;
+    background-size:cover !important;
 }
 
 .head{
- height: 1.1em;
- /* padding: 0.5em 0em 0.5em 0em; */
+    height: 1.1em;
+    /* padding: 0.5em 0em 0.5em 0em; */
 }
 
 
@@ -94,8 +94,8 @@ nav{
 }
 
 .menu-item{
-  font-family:'Roboto_Regular';
-  padding: 1.5em 0em 0em 0em;
+    font-family:'Roboto_Regular';
+    padding: 1.5em 0em 0em 0em;
 }
 
 
@@ -111,28 +111,27 @@ nav{
 
 
 .menu-item .item-float{
-  padding: 0.8em 1em;
+    padding: 0.8em 1em;
 }
 
 /*content*/
 
 .content{
-   /* min-height: 87%;*/
+
 }
 
 .content .c2{
- text-align:center;    
+    text-align:center;
 }
 
 .content .col.c1{
     text-align:left;
-    /* font-size:2em; */
 }
 
 .content .col.c1 .text{
-  font-family: Roboto_Thin;
-  color:white;
-  padding: 1.5em;
+    font-family: Roboto_Thin;
+    color:white;
+    padding: 1.5em;
 }
 
 .content .col.c1 h1{
@@ -140,61 +139,60 @@ nav{
 }
 
 .content .col.c1 h2{
-   font-size: 0.8em; 
+    font-size: 0.8em;
 }
 
 
 
-/* BoxForm*/ 
+/* BoxForm*/
 
 .box-form{
-  background-color: rgba(255,255,255,0.8);
-  display: inline-block;
-  padding: 1em;
-  border-top: 5px solid #ef6600;
-  border-radius: 0.3em;
-  font-family:'Roboto_Thin';
-  min-width: 260px;
-  max-width: 25em;
-  margin-bottom: 3em;
+    background-color: rgba(255,255,255,0.8);
+    display: inline-block;
+    padding: 1em;
+    border-top: 5px solid #ef6600;
+    border-radius: 0.3em;
+    font-family:'Roboto_Thin';
+    min-width: 260px;
+    max-width: 25em;
+    margin-bottom: 3em;
 }
 
 .flat-btn{
-  border-radius: 0.2em;
-  background-color: white;
-  margin: 1em 0px;
-  color:white;
-  font-family:'Roboto_Regular';
-  font-weight:bold;
+    border-radius: 0.2em;
+    background-color: white;
+    margin: 1em 0px;
+    color:white;
+    font-family:'Roboto_Regular';
+    font-weight:bold;
 }
 
 .flat-btn.linkedin{
-  background-color:#007BB5;
-  box-shadow: 2px 2px 1px 0px #007BB5;
+    background-color:#007BB5;
+    box-shadow: 2px 2px 1px 0px #007BB5;
 }
 
 .flat-btn.facebook{
-  background-color:#3B5989;
-  box-shadow: 2px 2px 1px 0px #23416F;
+    background-color:#3B5989;
+    box-shadow: 2px 2px 1px 0px #23416F;
 }
 
 .flat-btn.signup{
-  text-align:center;
-  background-color:#F29100;
-  box-shadow: 0px 0px 0px 0px #F29100 inset;
+    text-align:center;
+    background-color:#F29100;
+    box-shadow: 0px 0px 0px 0px #F29100 inset;
 }
 
 
 .flat-btn [class*="-icon"]{
-  width: 0em;
-  height: 0.5em;
-  border-width: 2px;
-  border-right-style: ridge;
-  /* border-left-color: rgba(2, 2, 2, 0.26); */
-  border-color: rgba(250, 250, 250, 0.42);
-  background-size: inherit;
-  float: left;
-  padding: 1.3em;
+    width: 0em;
+    height: 0.5em;
+    border-width: 2px;
+    border-right-style: ridge;
+    border-color: rgba(250, 250, 250, 0.42);
+    background-size: inherit;
+    float: left;
+    padding: 1.3em;
 }
 
 .title_form{
@@ -202,34 +200,34 @@ nav{
 }
 
 .flat-btn .title{
- float:left;
- padding: 1em 1em;
+    float:left;
+    padding: 1em 1em;
 }
 
 .flat-btn.signup .title{
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;    
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .box-input{
-  margin: 0.4em 0em;
+    margin: 0.4em 0em;
 }
 
 .box-input input{
-  line-height: 1em;
-  width: 100%;
-  border-radius: 0.3em;
-  border: 2px solid rgba(128, 128, 128, 0.46);
-  padding: 0.5em;
+    line-height: 1em;
+    width: 100%;
+    border-radius: 0.3em;
+    border: 2px solid rgba(128, 128, 128, 0.46);
+    padding: 0.5em;
 }
 
 
 .box-input input.wrong{
-  border-color: transparent;
-  box-shadow: 0px 0px 5px 2px rgb(240, 154, 154);
+    border-color: transparent;
+    box-shadow: 0px 0px 5px 2px rgb(240, 154, 154);
 }
 
 .box-input input.wrong:focus{
-  outline:none;
+    outline:none;
 }
