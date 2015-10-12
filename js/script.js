@@ -116,7 +116,7 @@ function menu_item($scope,$parentscope){
 
     /*This final template*/
     /* 
-     '<div class="menu-item col">'
+     <div class="menu-item col">
      <div class="head" id="item-1">
      <div class="title">BUSCAR EMPLEO</div>
      <div class="caret-icon"></div>
@@ -126,7 +126,7 @@ function menu_item($scope,$parentscope){
      <div class="item-float"><a href="#">Categoría</a></div>
      <div class="item-float"><a href="#">País</a></div>
      </div>
-     </div>'
+     </div>
      */
 }
 
@@ -171,7 +171,7 @@ function controllerMenu(menu_JSON){
         items=nav.items;
 
         for(k in items){
-            if(newVal==items[k].$id){
+            if(newVal==items[k].$id){ // if $id current Element is same the someone  items in nav
 
                 if(items[k].visible){
                     items[k].changeState(false);
