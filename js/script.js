@@ -1,6 +1,6 @@
 
 /*
- * object.watch polyfill
+ * Main script for dynamic test Page
  *
  * 2015-10-12
  *
