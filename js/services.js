@@ -77,3 +77,9 @@ function loadJSON(callback,urlFile) {
     };
     xobj.send(null);  
 }
+
+
+function resetUrl(){
+    var pathname=window.location.pathname;
+    console.log(pathname);
+}

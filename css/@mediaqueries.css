@@ -4,8 +4,8 @@
         }
         
         .logo{
-        width: 13%;
-        min-width: 100PX;
+        width: 20%;
+        min-width: 150PX;
         }
         
         .menu-icon{
@@ -14,12 +14,22 @@
         
         .nav{
             float:left;
+            width: 71%;
+        
+            padding-left: 2%;
+            min-width: 540px;
+}
+        
+        .nav .menu-item{
+         width: 23%;
+         max-width: 10em;
+        
         }
         
         
         /*Nav-Bar*/
         .nav-bar .title{
-        color:white;
+            color:white;
         }
         
         .menu-nav> div.head{
@@ -40,19 +50,37 @@
         }
         
         .menu-item .item-float:hover, .menu-item .item-float:focus , .menu-item .item-float:active{
-            background-color: rgba(161, 161, 161, 0.2);;    
+            background-color: rgba(161, 161, 161, 0.2);   
         }
         
         .menu-item.btn{
-        border-radius:0.2em;
-        border:1px solid;
-        padding:0.5em 0.5em;
-        color:white;
-        float:right;
-        position: absolute;
-        right: 0;
-        top: 1em;
+            border-radius:0.2em;
+            border:1px solid;
+            padding:0.5em 0.5em;
+            color:white;
+            float:right;
+            position: absolute;
+            right: 0;
+            top: 1em;
+            width:auto;
         }
+        
+        .content .col.c1,.content .col.c2 {
+            /*width:50%;*/
+        }
+        
+        .content .col.c1{
+           /*background-color:red;*/
+           width:60%;
+        }
+        
+        .content .col.c2{
+          /*background-color:white;*/
+          width:40%;
+        }
+        
+        
+        
     
     }
     

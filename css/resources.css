@@ -6,6 +6,11 @@
   cursor:pointer;
 }
 
+[class*="-btn"]{
+    cursor:pointer;
+}
+
+
 /*
     backgrounds
 */
@@ -30,7 +35,7 @@
 }
 
 .linkedin-icon{
-    background-image: url("../resources/assets/linkedin.png");
+    background-image: url("../resources/assets/Linkedin.png");
 }
 
 .menu-icon{

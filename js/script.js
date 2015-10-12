@@ -8,18 +8,18 @@ function item_float($scope){
     var label=isDefined($scope.label)?$scope.label:"title";
     var urlLabel=isDefined($scope.url)?$scope.url:"#";
     
-    this.item=document.createElement('div');
-    this.item.setAttribute("class","item-float");
-    this.link=document.createElement('a');
-    this.link.setAttribute("href",urlLabel);
-    this.link.innerHTML=label;
+    this.element=document.createElement('div');
+    this.element.setAttribute("class","item-float");
     
+    var link=document.createElement('a');
+        link.setAttribute("href",urlLabel);
+        link.innerHTML=label;
+    
+    this.element.appendChild(link);
 
     this.getElement=function(){
-        this.item.appendChild(this.link);
-        return this.item;
+        return this.element;
     }
-    
 }
 
 /* Create the Element menu_item*/
@@ -43,11 +43,18 @@ function menu_item($scope,$parentscope){
     var caret=document.createElement('div');
     caret.setAttribute("class","caret-icon");
     
+    
+    var link=document.createElement('a');
+    link.innerHTML=label;
+    link.setAttribute("href",urlLabel);
+    
     var title=document.createElement('div');
     title.setAttribute("class","title");
-    title.innerHTML=label;
+    title.appendChild(link);
+    
     
     head.appendChild(title);
+    
     
     
     var menuFloat=document.createElement('div');
@@ -58,7 +65,9 @@ function menu_item($scope,$parentscope){
    /*add all deep child elements*/
    this.render=function(){
         if(itemsFloat.length>0){
+            link.setAttribute("href","#");
             head.appendChild(caret);
+            
             for(k in itemsFloat){ 
                 var item=itemsFloat[k];
                 item.id="$"+idItem+k;
@@ -180,10 +189,6 @@ function controllerMenu(menu_JSON){
         }
     });
 }
-
-
-
-
 
 
 function init(){
