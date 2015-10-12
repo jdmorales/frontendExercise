@@ -83,3 +83,27 @@ function resetUrl(){
     var pathname=window.location.pathname;
     console.log(pathname);
 }
+
+
+function validateFildes(){
+    var email =document.getElementById('email');
+    var password =document.getElementById('password');
+    var exp = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+    
+    
+    if (email.value == '' || !exp.test(email.value))
+    {
+       email.classList.add("wrong");
+    }else{
+       email.classList.remove("wrong");
+    }
+    
+    
+    if (password.value == '')
+    {
+        password.classList.add("wrong");
+    }else{
+       password.classList.remove("wrong");  
+    }
+    
+}

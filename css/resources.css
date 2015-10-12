@@ -6,8 +6,9 @@
   cursor:pointer;
 }
 
-[class*="-btn"]{
+[class*="-btn"]:hover,[class*="-btn"]:focus,[class*="-btn"]:active{
     cursor:pointer;
+    opacity:0.8;
 }
 
 

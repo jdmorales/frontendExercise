@@ -49,6 +49,11 @@
             border-bottom:1px solid gray;
         }
         
+        
+        .item-float:hover{
+            opacity:0.6;
+        }
+        
         .menu-item .item-float:hover, .menu-item .item-float:focus , .menu-item .item-float:active{
             background-color: rgba(161, 161, 161, 0.2);   
         }
@@ -162,11 +167,18 @@
         
         }
         
+        .item-float:hover{
+            opacity:0.6;
+        }
+        
         .menu-nav>.head{
             background-color:rgba(200,200,200,1);
             color:white;
             font-size:1.2em;        
         }
+        
+        
+        
         
         .menu-nav .head .close-icon{
         width:1em;
