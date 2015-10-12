@@ -123,12 +123,30 @@ nav{
  text-align:center;    
 }
 
+.content .col.c1{
+    text-align:left;
+    /* font-size:2em; */
+}
+
+.content .col.c1 .text{
+  font-family: Roboto_Thin;
+  color:white;
+  padding: 1.5em;
+}
+
+.content .col.c1 h1{
+    font-size:1.5em;
+}
+
+.content .col.c1 h2{
+   font-size: 0.8em; 
+}
+
 
 
 /* BoxForm*/ 
 
 .box-form{
-  width: 64%;
   background-color: rgba(255,255,255,0.8);
   display: inline-block;
   padding: 1em;
@@ -136,10 +154,7 @@ nav{
   border-radius: 0.3em;
   font-family:'Roboto_Thin';
   min-width: 260px;
-  max-width: 300px;
-  /* padding: 1em; */
-  /* position: absolute; */
-  margin-top: 7em;
+  max-width: 25em;
   margin-bottom: 3em;
 }
 
