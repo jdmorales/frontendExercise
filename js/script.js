@@ -1,17 +1,23 @@
+
 /*
- * Controllers and Components Javascript 
+ * object.watch polyfill
  *
-*/
+ * 2015-10-12
+ *
+ * By John Darwin Morales
+ * Public Domain.
+ * Define all dinamic components with the Controllers and Components Javascript 
+ */
 
 /*Create Element  menu item float*/
 function item_float($scope){
     var label=isDefined($scope.label)?$scope.label:"title";
     var urlLabel=isDefined($scope.url)?$scope.url:"#";
     
-    this.element=document.createElement('div');
+    this.element=document.createElement('div');//define the main element
     this.element.setAttribute("class","item-float");
     
-    var link=document.createElement('a');
+    var link=document.createElement('a'); // create the link tag
         link.setAttribute("href",urlLabel);
         link.innerHTML=label;
     
@@ -32,7 +38,7 @@ function menu_item($scope,$parentscope){
 
     this.$id=idItem;
     this.visible=false;
-    this.element=document.createElement('div');
+    this.element=document.createElement('div'); //define the main element
     this.element.setAttribute("class","menu-item col");
     
     

@@ -1,3 +1,5 @@
+/*This watch is for allow keep out risk*/
+
 /*
  * object.watch polyfill
  *
@@ -53,8 +55,11 @@ if (!Object.prototype.unwatch) {
 	});
 }
 
+/******************************************************************************/
+
+
 /*
-* Service for defined values
+* Allow for test if  values are defined
 */
 function isDefined(varD){
    if (typeof varD != 'undefined')
@@ -63,7 +68,9 @@ function isDefined(varD){
 }
 
 
-/*Used for load .json with an urlFile*/
+/*
+*Used for load .json with an urlFile
+*/
 function loadJSON(callback,urlFile) {   
 
     var xobj = new XMLHttpRequest();
@@ -79,12 +86,8 @@ function loadJSON(callback,urlFile) {
 }
 
 
-function resetUrl(){
-    var pathname=window.location.pathname;
-    console.log(pathname);
-}
 
-
+/*Validete Files of Form  */
 function validateFildes(){
     var email =document.getElementById('email');
     var password =document.getElementById('password');
